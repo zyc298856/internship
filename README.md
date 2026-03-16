@@ -1,6 +1,6 @@
 # GLM-5V Nexus Chat Web App
 
-A modern, full-stack multi-modal AI chat application built with Vue 3, FastAPI, MySQL, and Zhipu AI's flagship GLM-4V-Plus (GLM-5 Vision) model.
+A modern, full-stack multi-modal AI chat application built with Vue 3, FastAPI, MySQL, and Zhipu AI's flagship GLM-5 model.
 
 ## Features
 - **Multi-modal Input**: Supports uploading local images or pasting online image URLs.

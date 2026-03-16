@@ -208,7 +208,7 @@ onMounted(() => {
   <div class="chat-layout">
     <aside class="sidebar">
       <div class="sidebar-header">
-        <h2 class="logo">GLM-4V-Plus</h2>
+        <h2 class="logo">GLM-5</h2>
         <el-button type="primary" size="small" circle icon="el-icon-plus" @click="createSession">+</el-button>
       </div>
       <div class="session-list">
@@ -236,7 +236,7 @@ onMounted(() => {
         <div v-if="messages.length === 0" class="empty-state">
           <div class="glowing-orb"></div>
           <h3>Initialize Nexus</h3>
-          <p>Start a conversation or upload an image for GLM-4V-Plus to analyze.</p>
+          <p>Start a conversation or upload an image for GLM-5 to analyze.</p>
         </div>
         
         <div 
@@ -272,7 +272,7 @@ onMounted(() => {
             v-model="inputText"
             type="textarea"
             :autosize="{ minRows: 1, maxRows: 4 }"
-            placeholder="Ask GLM-4V-Plus something..."
+            placeholder="Ask GLM-5 something..."
             class="chat-input"
             @keydown.enter.exact.prevent="sendMessage"
           />

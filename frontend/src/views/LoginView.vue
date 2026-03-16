@@ -49,9 +49,13 @@ const handleSubmit = async () => {
 
 <template>
   <div class="auth-wrapper">
+    <!-- Star Decoration -->
+    <svg class="bg-star" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 0C12 5.5 16.5 10 22 10V14C16.5 14 12 18.5 12 24H10C10 18.5 5.5 14 0 14V10C5.5 10 10 5.5 10 0H12Z" />
+    </svg>
     <div class="glass-card">
       <div class="brand">
-        <h1 class="glow-text">GLM-4V-Plus Nexus</h1>
+        <h1 class="glow-text">GLM-5 Nexus</h1>
         <p>Multimodal Next-Gen AI</p>
       </div>
       
@@ -98,6 +102,8 @@ const handleSubmit = async () => {
 
 <style scoped>
 .auth-wrapper {
+  position: relative;
+  overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -107,6 +113,17 @@ const handleSubmit = async () => {
   animation: gradientBG 15s ease infinite;
 }
 
+.bg-star {
+  position: absolute;
+  bottom: 2.5rem;
+  right: 2.5rem;
+  width: 45px;
+  height: 45px;
+  color: rgba(200, 220, 240, 0.6);
+  filter: drop-shadow(0 0 10px rgba(200, 220, 240, 0.4));
+  z-index: 1;
+}
+
 @keyframes gradientBG {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
@@ -114,21 +131,24 @@ const handleSubmit = async () => {
 }
 
 .glass-card {
+  position: relative;
+  z-index: 2;
   background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 229, 255, 0.3);
   border-radius: 20px;
   padding: 3rem;
   width: 100%;
   max-width: 400px;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 30px rgba(0, 229, 255, 0.15), inset 0 0 20px rgba(0, 229, 255, 0.1);
   transform: translateY(0);
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .glass-card:hover {
   transform: translateY(-5px);
+  box-shadow: 0 0 40px rgba(0, 229, 255, 0.25), inset 0 0 30px rgba(0, 229, 255, 0.15);
 }
 
 .brand {
@@ -141,7 +161,7 @@ const handleSubmit = async () => {
   color: #fff;
   margin: 0;
   font-weight: 800;
-  text-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+  text-shadow: 0 0 20px rgba(0, 229, 255, 0.6), 0 0 40px rgba(0, 229, 255, 0.3);
   letter-spacing: -1px;
 }
 
@@ -160,13 +180,15 @@ const handleSubmit = async () => {
 
 ::v-deep(.modern-input .el-input__wrapper) {
   background: rgba(0, 0, 0, 0.2);
-  box-shadow: none !important;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 229, 255, 0.1) !important;
+  border: 1px solid rgba(0, 229, 255, 0.4);
+  border-radius: 999px; /* Pill shape */
+  padding: 0 15px;
 }
 
 ::v-deep(.modern-input input) {
   color: #fff !important;
+  background: transparent !important;
 }
 
 ::v-deep(.modern-input .el-input__wrapper.is-focus) {
@@ -174,18 +196,29 @@ const handleSubmit = async () => {
   box-shadow: 0 0 10px rgba(0, 229, 255, 0.3) !important;
 }
 
+/* Fix CSS for Chrome autofill overriding dark background */
+::v-deep(.modern-input input:-webkit-autofill),
+::v-deep(.modern-input input:-webkit-autofill:hover), 
+::v-deep(.modern-input input:-webkit-autofill:focus), 
+::v-deep(.modern-input input:-webkit-autofill:active) {
+    -webkit-text-fill-color: white !important;
+    transition: background-color 5000s ease-in-out 0s;
+    background-color: transparent !important;
+}
+
 .submit-btn {
-  background: linear-gradient(90deg, #00c6ff 0%, #0072ff 100%);
+  background: linear-gradient(90deg, #60a5fa 0%, #3b82f6 100%);
   border: none;
-  border-radius: 10px;
+  border-radius: 999px;
   font-weight: bold;
   letter-spacing: 1px;
   transition: all 0.3s ease;
+  box-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
 }
 
 .submit-btn:hover {
-  box-shadow: 0 0 20px rgba(0, 114, 255, 0.6);
-  opacity: 0.9;
+  box-shadow: 0 0 25px rgba(59, 130, 246, 0.7);
+  opacity: 1;
 }
 
 .toggle-mode {
